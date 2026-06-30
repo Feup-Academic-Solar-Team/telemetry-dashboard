@@ -3,68 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telemetry Live Dashboard</title>
-    <!-- Biblioteca para desenhar o gráfico -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Telemetry Dashboard</title>
     <style>
         body { font-family: sans-serif; background: #111; color: #fff; text-align: center; padding: 20px; }
-        .container { max-width: 600px; margin: 0 auto; background: #222; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
-        h1 { color: #00ff88; font-size: 24px; }
-        .status { font-weight: bold; color: #00ff88; animation: blink 1.5s infinite; }
-        @keyframes blink { 0% { opacity: 0.4; } 50% { opacity: 1; } 100% { opacity: 0.4; } }
+        .box { border: 2px solid #00ff88; padding: 10px; display: inline-block; border-radius: 10px; background: #222; width: 90%; max-width: 800px; }
+        iframe { width: 100%; height: 500px; border: none; background: white; border-radius: 8px; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Competition Telemetry</h1>
-        <p>Status: <span class="status">● LIVE STREAMING</span></p>
-        <p style="color: #aaa;">Simulated onboard sensor data (updating every 1s)</p>
-        
-        <!-- Onde o gráfico vai aparecer -->
-        <canvas id="liveChart"></canvas>
+    <h1>MEBC</h1>
+    <div class="box">
+        <iframe src="https://mutate-bankbook-chrome.ngrok-free.dev -> http://localhost:8000"></iframe>
     </div>
 
-    <script>
-        const ctx = document.getElementById('liveChart').getContext('2d');
-        let timeLabels = [];
-        let dataPoints = [];
-
-        const chart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: timeLabels,
-                datasets: [{
-                    label: 'Sensor Value (Hz)',
-                    data: dataPoints,
-                    borderColor: '#00ff88',
-                    backgroundColor: 'rgba(0, 255, 136, 0.1)',
-                    borderWidth: 2,
-                    tension: 0.3
-                }]
-            },
-            options: {
-                scales: {
-                    x: { grid: { color: '#333' }, ticks: { color: '#aaa' } },
-                    y: { grid: { color: '#333' }, ticks: { color: '#aaa' }, min: 0, max: 100 }
-                }
-            }
-        });
-
-        // Função que simula o tempo real adicionando dados a cada 1 segundo
-        setInterval(() => {
-            const now = new Date().toLocaleTimeString();
-            const randomValue = Math.floor(Math.random() * 40) + 30; // Gera um valor entre 30 e 70
-
-            if (timeLabels.length > 10) {
-                timeLabels.shift();
-                dataPoints.shift();
-            }
-
-            timeLabels.push(now);
-            dataPoints.push(randomValue);
-            chart.update();
-        }, 1000);
-    </script>
 </body>
 </html>

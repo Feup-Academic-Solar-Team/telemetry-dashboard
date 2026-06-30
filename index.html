@@ -5,17 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telemetry Dashboard</title>
     <style>
-        body { font-family: sans-serif; background: #111; color: #fff; text-align: center; padding: 20px; }
-        .box { border: 2px solid #00ff88; padding: 10px; display: inline-block; border-radius: 10px; background: #222; width: 90%; max-width: 800px; }
-        iframe { width: 100%; height: 500px; border: none; background: white; border-radius: 8px; }
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            height: 100%; 
+            background: #111; 
+            overflow: hidden; 
+        }
+        
+        iframe { 
+            width: 100vw; 
+            height: 100vh; 
+            border: none; 
+            display: block; 
+        }
     </style>
 </head>
 <body>
-
-    <h1>MEBC</h1>
-    <div class="box">
-        <iframe src="https://mutate-bankbook-chrome.ngrok-free.dev"></iframe>
-    </div>
-
+    <iframe src="https://conjuror-large-unloved.ngrok-free.dev"></iframe> 
 </body>
 </html>

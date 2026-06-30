@@ -3,25 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telemetry Dashboard</title>
+    <title>FEUP Solar Team | Telemetry</title>
     <style>
-        body, html { 
-            margin: 0; 
-            padding: 0; 
-            height: 100%; 
-            background: #111; 
-            overflow: hidden; 
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #0f172a;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
+        .container { text-align: center; }
+        h1 { margin-bottom: 40px; font-weight: 300; letter-spacing: 2px; }
+        .btn-group { display: flex; gap: 20px; }
+        .btn {
+            padding: 15px 40px;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.2s, background 0.3s;
+            font-weight: bold;
+        }
+        .btn-recording { background: #64748b; color: white; }
         
-        iframe { 
-            width: 100vw; 
-            height: 100vh; 
-            border: none; 
-            display: block; 
+        .btn-live-inactive { 
+            background: #1e293b; 
+            color: #64748b; 
+            cursor: default;
+            pointer-events: none;
+            border: 1px solid #334155;
         }
     </style>
 </head>
 <body>
-    <iframe src="https://conjuror-large-unloved.ngrok-free.dev"></iframe> 
+    <div class="container">
+        <h1>FEUP Solar Team Telemetry</h1>
+        <div class="btn-group">
+            <a href="dash.webm" target="_blank" class="btn btn-recording">View Recording</a>
+            
+            <a href="https://app.foxglove.dev/?ds=wss%3A%2F%2Fdashboard.seuprojeto.com" 
+               class="btn btn-live-inactive">Live (Offline)</a>
+        </div>
+    </div>
 </body>
 </html>
